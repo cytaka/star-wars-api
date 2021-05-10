@@ -139,6 +139,6 @@ Deve aceitar uma requisição com body vazio e retornar 204.
 Para rodar a API via .jar:
 
 ```
-java -jar travels-api-2.0.1.jar
+java -jar star-wars-api-0.0.1.jar
 ```
 Por default, a API está disponível no endereço [http://localhost:8080/](http://localhost:8080/)
