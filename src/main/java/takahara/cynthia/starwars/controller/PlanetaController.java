@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
@@ -56,14 +57,14 @@ public class PlanetaController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<PlanetaDto> pesquisar(@PathVariable String id) {
-		Planeta planeta = pesquisarPorId(id);
-		return ResponseEntity.ok(new PlanetaDto(planeta, getApariacoes(planeta.getNome())));
+		Optional<Planeta> planeta = pesquisarPorId(id);
+		if (planeta.isPresent())
+			return ResponseEntity.ok(new PlanetaDto(planeta.get(), getApariacoes(planeta.get().getNome())));
+		return ResponseEntity.notFound().build();
 	}
 
-	private Planeta pesquisarPorId(String id) {
-		return repository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Não existe Planeta com esse id"));
-
+	private Optional<Planeta> pesquisarPorId(String id) {
+		return repository.findById(id);
 	}
 
 	public Integer getApariacoes(String nome) {
@@ -79,17 +80,26 @@ public class PlanetaController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<PlanetaDto> alterar(@PathVariable String id, @RequestBody @Valid Planeta planeta) {
-		Planeta entidade = pesquisarPorId(id);
-		entidade.setNome(planeta.getNome());
-		entidade.setClima(planeta.getClima());
-		entidade.setTerreno(planeta.getTerreno());
-		repository.save(entidade);
-		return ResponseEntity.ok().body(new PlanetaDto(entidade, getApariacoes(entidade.getNome())));
+		Optional<Planeta> optional = pesquisarPorId(id);
+		if (optional.isPresent()) {
+			Planeta entidade = optional.get();
+			entidade.setNome(planeta.getNome());
+			entidade.setClima(planeta.getClima());
+			entidade.setTerreno(planeta.getTerreno());
+			repository.save(entidade);
+			return ResponseEntity.ok().body(new PlanetaDto(entidade, getApariacoes(entidade.getNome())));
+		}
+		return ResponseEntity.notFound().build();
+
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> remover(@PathVariable String id) {
-		repository.deleteById(id);
-		return ResponseEntity.ok().build();
+		Optional<Planeta> optional = pesquisarPorId(id);
+		if (optional.isPresent()) {
+			repository.deleteById(id);
+			return ResponseEntity.ok().build();
+		}
+		return ResponseEntity.notFound().build();
 	}
 }

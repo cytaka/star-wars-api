@@ -7,7 +7,6 @@ public class PlanetList implements Serializable {
 
 	private Integer count;
 	private String next;
-	private String previous;
 	private List<Planet> results;
 
 	public String getNext() {
@@ -18,13 +17,6 @@ public class PlanetList implements Serializable {
 		this.next = next;
 	}
 
-	public String getPrevious() {
-		return previous;
-	}
-
-	public void setPrevious(String previous) {
-		this.previous = previous;
-	}
 
 	public Integer getCount() {
 		return count;
