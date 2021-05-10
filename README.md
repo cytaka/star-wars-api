@@ -64,7 +64,7 @@ A resposta deve conter os códigos a seguir:
 
 * 200: em caso de sucesso.
 * 400: caso o JSON seja inválido.
-* 500: se o id não for encontrado
+* 404: caso o registro não existe.
 
 `GET/planetas`: retorna todas os planetas cadastrados.
 
@@ -128,11 +128,16 @@ Deve retornar um planeta.
 A resposta deve conter os códigos a seguir:
 
 * 200: caso exista planetas cadastrados
-* 500: caso não exista planetas criados.
+* 404: caso o registro não existe.
 
 `DELETE/planetas/{id}`: remove um planeta.
 
 Deve aceitar uma requisição com body vazio e retornar 204.
+
+A resposta deve conter os códigos a seguir:
+
+* 200: caso remova planeta
+* 404: caso o registro não existe.
 
 ### Execução
 
