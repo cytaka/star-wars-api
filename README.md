@@ -10,25 +10,23 @@ API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consul
 
 **Body:**
 
-<code>
-{
+
+>{
   "nome": "Tatooine",
   "clima": "arid",
   "terreno": "desert"
 }
-</code>
+
 
 Deve ser enviado o objeto que será inserido. O retorno deve ser o próprio objeto.
 
-<code>
-{
+>{
     "id": "6098619f8ac74d626db3db02",
     "nome": "Tatooine",
     "clima": "arid",
     "terreno": "desert",
     "apariacoes": 5
 }
-</code>
 
 Deve retornar com body vazio com um dos códigos a seguir:
 
@@ -40,25 +38,21 @@ Deve retornar com body vazio com um dos códigos a seguir:
 
 **Body:**
 
-<code>
-{
+>{
   "nome": "Tatooine",
   "clima": "arid",
   "terreno": "desert"
 }
-</code>
 
 Deve ser enviado o objeto que será modificado. O retorno deve ser o próprio objeto modificado.
 
-<code>
-{
+>{
     "id": "6098619f8ac74d626db3db02",
     "nome": "Tatooine",
     "clima": "arid",
     "terreno": "desert",
     "apariacoes": 5
 }
-</code>
 
 A resposta deve conter os códigos a seguir:
 
@@ -70,8 +64,7 @@ A resposta deve conter os códigos a seguir:
 
 Deve retornar uma lista de planetas.
 
-<code>
-[  
+>[  
   {
       "id": "6097134690d0210d61c51d7c",
       "nome": "Alderaan",
@@ -87,7 +80,6 @@ Deve retornar uma lista de planetas.
       "apariacoes": 1
   }
 ]
-</code>
 
 A resposta deve conter os códigos a seguir:
 
@@ -97,15 +89,13 @@ A resposta deve conter os códigos a seguir:
 
 Deve retornar uma lista de planetas.
 
-<code>
-[{
+>[{
     "id": "6097134690d0210d61c51d7c",
     "nome": "Alderaan",
     "clima": "temperate",
     "terreno": "grasslands, mountains",
     "apariacoes": 2
 }]
-</code>
 
 A resposta deve conter os códigos a seguir:
 
@@ -115,15 +105,13 @@ A resposta deve conter os códigos a seguir:
 
 Deve retornar um planeta.
 
-<code>
-{
+>{
     "id": "6097134690d0210d61c51d7c",
     "nome": "Alderaan",
     "clima": "temperate",
     "terreno": "grasslands, mountains",
     "apariacoes": 2
 }
-</code>
 
 A resposta deve conter os códigos a seguir:
 
