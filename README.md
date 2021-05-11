@@ -1,6 +1,6 @@
 # star-wars-api
 
-Uma API em Java, banco MongoDB e Spring Framework que contem dados dos planetas da serie Star Wars
+Uma API em Java que utiliza banco MongoDB e Spring Boot Framework que contem dados dos planetas da serie Star Wars
 
 ## Como a API funciona?
 
