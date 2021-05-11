@@ -139,7 +139,7 @@ A resposta deve conter os códigos a seguir:
 * 200: caso remova planeta
 * 404: caso o registro não existe.
 
-### Execução
+## Execução
 
 Para rodar a API via .jar:
 
@@ -147,3 +147,23 @@ Para rodar a API via .jar:
 java -jar star-wars-api-0.0.1.jar
 ```
 Por default, a API está disponível no endereço [http://localhost:8080/](http://localhost:8080/)
+
+## Imagem Docker
+
+Esta disponível uma imagem do docker.
+
+Para executar pegar o arquivo [docker-compose.yml](https://github.com/cytaka/star-wars-api/blob/master/docker-compose.yml) e executar o comando no terminal para subir um docker com o Mongo e outro com a API
+```
+docker-compose up -d
+```
+Para parar 
+```
+docker-compose down
+```
+
+## Collection Postman
+
+Esta disponível collection do Postman para teste.
+
+[StarWars-API.postman_collection.json](https://github.com/cytaka/star-wars-api/blob/master/StarWars-API.postman_collection.json)
+
