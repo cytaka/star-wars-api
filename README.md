@@ -152,11 +152,12 @@ Por default, a API está disponível no endereço [http://localhost:8080/](http:
 
 Esta disponível uma imagem do docker.
 
-Para executar pegar o arquivo [docker-compose.yml](https://github.com/cytaka/star-wars-api/blob/master/docker-compose.yml) e executar o comando no terminal para subir um docker com o Mongo e outro com a API
+Para executar basta baixar o arquivo [docker-compose.yml](https://github.com/cytaka/star-wars-api/blob/master/docker-compose.yml) e executar o comando no terminal.
+Para subir um docker com o Mongo e outro com a API
 ```
 docker-compose up -d
 ```
-Para parar 
+Para parar o docker
 ```
 docker-compose down
 ```
