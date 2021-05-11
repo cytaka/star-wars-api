@@ -6,21 +6,21 @@ import takahara.cynthia.starwars.model.Planeta;
 
 public class PlanetaDto extends Planeta {
 
-	private Integer apariacoes;
+	private Integer aparicoes;
 
-	public PlanetaDto(Planeta planeta, Integer apariacoes) {
+	public PlanetaDto(Planeta planeta, Integer aparicoes) {
 		super();
 		this.setId(planeta.getId());
 		this.setNome(planeta.getNome());
 		this.setClima(planeta.getClima());
 		this.setTerreno(planeta.getTerreno());
-		this.apariacoes = 0;
-		if (Objects.nonNull(apariacoes))
-			this.apariacoes = apariacoes;
+		this.aparicoes = 0;
+		if (Objects.nonNull(aparicoes))
+			this.aparicoes = aparicoes;
 	}
 
-	public Integer getApariacoes() {
-		return apariacoes;
+	public Integer getAparicoes() {
+		return aparicoes;
 	}
 
 }

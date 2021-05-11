@@ -47,7 +47,7 @@ public class PlanetaController {
 			resultado = repository.findByNome(nome);
 		List<PlanetaDto> retorno = new ArrayList<PlanetaDto>();
 
-		Map<String, Integer> map = ApariacoesController.getApariacoes(nome);
+		Map<String, Integer> map = AparicoesController.getAparicoes(nome);
 		resultado.forEach(e -> {
 			retorno.add(new PlanetaDto(e, map.get(e.getNome())));
 		});
@@ -59,7 +59,7 @@ public class PlanetaController {
 	public ResponseEntity<PlanetaDto> pesquisar(@PathVariable String id) {
 		Optional<Planeta> planeta = pesquisarPorId(id);
 		if (planeta.isPresent())
-			return ResponseEntity.ok(new PlanetaDto(planeta.get(), getApariacoes(planeta.get().getNome())));
+			return ResponseEntity.ok(new PlanetaDto(planeta.get(), getAparicoes(planeta.get().getNome())));
 		return ResponseEntity.notFound().build();
 	}
 
@@ -67,15 +67,15 @@ public class PlanetaController {
 		return repository.findById(id);
 	}
 
-	public Integer getApariacoes(String nome) {
-		return ApariacoesController.getApariacoes(nome).get(nome);
+	public Integer getAparicoes(String nome) {
+		return AparicoesController.getAparicoes(nome).get(nome);
 	}
 
 	@PostMapping
 	public ResponseEntity<PlanetaDto> inserir(@RequestBody @Valid Planeta planeta, UriComponentsBuilder uriBuilder) {
 		repository.save(planeta);
 		URI uri = uriBuilder.path("/planeta/{id}").buildAndExpand(planeta.getId()).toUri();
-		return ResponseEntity.created(uri).body(new PlanetaDto(planeta, getApariacoes(planeta.getNome())));
+		return ResponseEntity.created(uri).body(new PlanetaDto(planeta, getAparicoes(planeta.getNome())));
 	}
 
 	@PutMapping("/{id}")
@@ -87,7 +87,7 @@ public class PlanetaController {
 			entidade.setClima(planeta.getClima());
 			entidade.setTerreno(planeta.getTerreno());
 			repository.save(entidade);
-			return ResponseEntity.ok().body(new PlanetaDto(entidade, getApariacoes(entidade.getNome())));
+			return ResponseEntity.ok().body(new PlanetaDto(entidade, getAparicoes(entidade.getNome())));
 		}
 		return ResponseEntity.notFound().build();
 

@@ -48,7 +48,7 @@ public class PlanetaControllerTest {
 		Mockito.when(repository.findAll()).thenReturn(criarListaPlaneta(false));
 		ResponseEntity<List<PlanetaDto>> resultado = controller.listar(null);
 		Assert.assertNotNull(resultado);
-		Assert.assertNotNull(resultado.getBody().iterator().next().getApariacoes());
+		Assert.assertNotNull(resultado.getBody().iterator().next().getAparicoes());
 		Assert.assertEquals(2, resultado.getBody().size());
 	}
 
@@ -81,12 +81,12 @@ public class PlanetaControllerTest {
 		String id = "6097134690d0210d61c51d7c";
 		Planeta planeta = new Planeta("Naboo", "temperate", "grassy hills, swamps, forests, mountains");
 		planeta.setId(id);
-		PlanetaDto dto = new PlanetaDto(planeta, controller.getApariacoes(planeta.getNome()));
+		PlanetaDto dto = new PlanetaDto(planeta, controller.getAparicoes(planeta.getNome()));
 
 		Mockito.when(repository.findById(id)).thenReturn(Optional.of(planeta));
 		ResponseEntity<PlanetaDto> resultado = controller.pesquisar(id);
 		Assert.assertNotNull(resultado);
-		Assert.assertEquals(dto.getApariacoes(), resultado.getBody().getApariacoes());
+		Assert.assertEquals(dto.getAparicoes(), resultado.getBody().getAparicoes());
 		Assert.assertEquals(dto.getNome(), resultado.getBody().getNome());
 
 	}
@@ -102,11 +102,11 @@ public class PlanetaControllerTest {
 	@Test
 	public void testInserirPlaneta() {
 		Planeta planeta = new Planeta("Naboo", "temperate", "grassy hills, swamps, forests, mountains");
-		PlanetaDto dto = new PlanetaDto(planeta, controller.getApariacoes(planeta.getNome()));
+		PlanetaDto dto = new PlanetaDto(planeta, controller.getAparicoes(planeta.getNome()));
 		Mockito.when(repository.save(planeta)).thenReturn(planeta);
 		ResponseEntity<PlanetaDto> resultado = controller.inserir(planeta, UriComponentsBuilder.newInstance());
 		Assert.assertNotNull(resultado);
-		Assert.assertEquals(dto.getApariacoes(), resultado.getBody().getApariacoes());
+		Assert.assertEquals(dto.getAparicoes(), resultado.getBody().getAparicoes());
 		Assert.assertEquals(dto.getNome(), resultado.getBody().getNome());
 	}
 	
@@ -120,11 +120,11 @@ public class PlanetaControllerTest {
 		Planeta planetaAlterado = new Planeta("Naboo Modificado", "temperate",
 				"grassy hills, swamps, forests, mountains");
 		planetaAlterado.setId(id);
-		PlanetaDto dto = new PlanetaDto(planetaAlterado, controller.getApariacoes(planetaAlterado.getNome()));
+		PlanetaDto dto = new PlanetaDto(planetaAlterado, controller.getAparicoes(planetaAlterado.getNome()));
 
 		ResponseEntity<PlanetaDto> resultado = controller.alterar(id, planetaAlterado);
 		Assert.assertNotNull(resultado);
-		Assert.assertEquals(dto.getApariacoes(), resultado.getBody().getApariacoes());
+		Assert.assertEquals(dto.getAparicoes(), resultado.getBody().getAparicoes());
 		Assert.assertEquals(dto.getNome(), resultado.getBody().getNome());
 	}
 	@Test

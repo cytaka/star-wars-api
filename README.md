@@ -4,7 +4,7 @@ Uma API em Java, banco MongoDB e Spring Framework que contem dados dos planetas 
 
 ## Como a API funciona?
 
-API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consultar outra API externa verificando a quantidade de apariações em filmes de acordo com o nome criado e retornar em todas as requisições(exceto delete). A API terá os seguintes endpoints:
+API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consultar outra API externa verificando a quantidade de aparições em filmes de acordo com o nome criado e retornar em todas as requisições(exceto delete). A API terá os seguintes endpoints:
 
 `POST/planetas`: inserir um planeta. 
 
@@ -26,7 +26,7 @@ Deve ser enviado o objeto que será inserido. O retorno deve ser o próprio obje
     "nome": "Tatooine",
     "clima": "arid",
     "terreno": "desert",
-    "apariacoes": 5
+    "aparicoes": 5
 }
 ```
 
@@ -56,7 +56,7 @@ Deve ser enviado o objeto que será modificado. O retorno deve ser o próprio ob
     "nome": "Tatooine",
     "clima": "arid",
     "terreno": "desert",
-    "apariacoes": 5
+    "aparicoes": 5
 }
 ```
 
@@ -77,14 +77,14 @@ Deve retornar uma lista de planetas.
       "nome": "Alderaan",
       "clima": "temperate",
       "terreno": "grasslands, mountains",
-      "apariacoes": 2
+      "aparicoes": 2
   },
   {
       "id": "6097134b90d0210d61c51d7d",
       "nome": "Yavin IV",
       "clima": "temperate, tropical",
       "terreno": "jungle, rainforests",
-      "apariacoes": 1
+      "aparicoes": 1
   }
 ]
 ```
@@ -103,7 +103,7 @@ Deve retornar uma lista de planetas.
     "nome": "Alderaan",
     "clima": "temperate",
     "terreno": "grasslands, mountains",
-    "apariacoes": 2
+    "aparicoes": 2
 }]
 ```
 
@@ -121,7 +121,7 @@ Deve retornar um planeta.
     "nome": "Alderaan",
     "clima": "temperate",
     "terreno": "grasslands, mountains",
-    "apariacoes": 2
+    "aparicoes": 2
 }
 ```
 
