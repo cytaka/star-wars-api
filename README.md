@@ -4,7 +4,7 @@ Uma API em Java, banco MongoDB e Spring Framework que contem dados dos planetas 
 
 ## Como a API funciona?
 
-API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consultar outra API externa verificando a quantidade de apariações em filmes de acordo com o nome criado e retornar em todas as requisições(exceto delete). A API terá os seguintes endpoints:
+API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consultar outra API externa verificando a quantidade de aparições em filmes de acordo com o nome criado e retornar em todas as requisições(exceto delete). A API terá os seguintes endpoints:
 
 `POST/planetas`: inserir um planeta. 
 
@@ -26,7 +26,7 @@ Deve ser enviado o objeto que será inserido. O retorno deve ser o próprio obje
     "nome": "Tatooine",
     "clima": "arid",
     "terreno": "desert",
-    "apariacoes": 5
+    "aparicoes": 5
 }
 ```
 
