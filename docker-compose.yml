@@ -4,12 +4,9 @@ services:
 
  mongo:
    container_name: docker_mongo
-   #environment:
-   #   MONGO_INITDB_ROOT_USERNAME: nome_do_usuario_do_mongo
-   #   MONGO_INITDB_ROOT_PASSWORD: senha_do_usuario_do_mongo
    image: mongo:latest
-   #volumes:
-   #  - D:\Cursos\star-wars-api\db:/data/db
+   volumes:
+     - /data/db:/data/db
 
  spring:
    container_name: docker-spring
@@ -20,4 +17,4 @@ services:
      - TZ=America/Sao_Paulo
    depends_on:
      - mongo
-   image: star-wars
+   image: cytaka/star-wars-docker:latest

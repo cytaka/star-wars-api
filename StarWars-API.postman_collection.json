@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "df0fdada-d933-4cd9-a62d-5e6b10e95e30",
+		"name": "StarWars-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/planetas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarPorNome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/planetas?nome=OOIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "OOIn"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pesquisar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/planetas/6099a5c59257fc43fec5b850",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas",
+						"6099a5c59257fc43fec5b850"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inserir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Tatooine\",\r\n  \"clima\": \"arid\",\r\n  \"terreno\": \"desert\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/planetas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"terra\",\r\n        \"clima\": \"calor\",\r\n        \"terreno\": \"montanha\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/planetas/609862078ac74d626db3db03a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas",
+						"609862078ac74d626db3db03a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remover",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"terra\",\r\n        \"clima\": \"calor\",\r\n        \"terreno\": \"montanha\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/planetas/6099a5c59257fc43fec5b850aaa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planetas",
+						"6099a5c59257fc43fec5b850aaa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

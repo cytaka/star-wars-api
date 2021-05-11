@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>takahara.cynthia</groupId>
 	<artifactId>star-wars</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>star-wars</name>
 	<description>API Planeta Star Wars</description>
 	<properties>
@@ -54,6 +54,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>star-wars</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
