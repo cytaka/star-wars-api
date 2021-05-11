@@ -6,7 +6,10 @@ Uma API em Java que utiliza banco MongoDB e Spring Boot Framework que contem dad
 
 API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consultar outra API externa verificando a quantidade de aparições em filmes de acordo com o nome criado e retornar em todas as requisições(exceto delete). A API terá os seguintes endpoints:
 
+### Inserir
 `POST/planetas`: inserir um planeta. 
+
+Deve ser enviado o objeto que será inserido. 
 
 **Body:**
 
@@ -17,38 +20,13 @@ API deve inserir, atualizar, deletar e listar planetas. Além disso, deve consul
   "terreno": "desert"
 }
 ```
-
-Deve ser enviado o objeto que será inserido. O retorno deve ser o próprio objeto.
-
-```
-{
-    "id": "6098619f8ac74d626db3db02",
-    "nome": "Tatooine",
-    "clima": "arid",
-    "terreno": "desert",
-    "aparicoes": 5
-}
-```
-
-Deve retornar com body vazio com um dos códigos a seguir:
+Deve retornar o próprio objeto com um dos códigos a seguir:
 
 * 201: caso o planeta seja criado com sucesso.
 * 400: caso o JSON seja inválido.
 * 500: erro no servidor
 
-`PUT/planetas/{id}`: atualiza um planeta.
-
-**Body:**
-
-```
-{
-  "nome": "Tatooine",
-  "clima": "arid",
-  "terreno": "desert"
-}
-```
-
-Deve ser enviado o objeto que será modificado. O retorno deve ser o próprio objeto modificado.
+**Response:**
 
 ```
 {
@@ -60,15 +38,46 @@ Deve ser enviado o objeto que será modificado. O retorno deve ser o próprio ob
 }
 ```
 
-A resposta deve conter os códigos a seguir:
+### Alterar
+`PUT/planetas/{id}`: atualiza um planeta de acordo com o id.
+
+Deve ser enviado o objeto que será modificado. 
+
+**Body:**
+
+```
+{
+  "nome": "Tatooine",
+  "clima": "arid",
+  "terreno": "desert"
+}
+```
+Deve retornar o próprio objeto com um dos códigos a seguir:
 
 * 200: em caso de sucesso.
 * 400: caso o JSON seja inválido.
 * 404: caso o registro não existe.
 
+**Response:**
+
+```
+{
+    "id": "6098619f8ac74d626db3db02",
+    "nome": "Tatooine",
+    "clima": "arid",
+    "terreno": "desert",
+    "aparicoes": 5
+}
+```
+### Listar
+
 `GET/planetas`: retorna todas os planetas cadastrados.
 
-Deve retornar uma lista de planetas.
+Deve retornar uma lista de planetas com um dos códigos a seguir:
+
+* 200: retorno da lista de planeta
+
+**Response:**
 
 ```
 [  
@@ -89,13 +98,15 @@ Deve retornar uma lista de planetas.
 ]
 ```
 
-A resposta deve conter os códigos a seguir:
-
-* 200: retorno da lista de planeta
+### Listar por nome
 
 `GET/planetas?nome={nome}`: retorna todas os planetas que tenham nome passado como parametro.
 
-Deve retornar uma lista de planetas.
+Deve retornar uma lista de planetas filtrando pelo nome com um dos códigos a seguir:
+
+* 200: caso exista planetas cadastradas
+
+**Response:**
 
 ```
 [{
@@ -107,13 +118,16 @@ Deve retornar uma lista de planetas.
 }]
 ```
 
-A resposta deve conter os códigos a seguir:
-
-* 200: caso exista planetas cadastradas
+### Pesquisar
 
 `GET/planetas?{id}`: retorna um planeta de acordo com id.
 
-Deve retornar um planeta.
+Deve retornar um planeta com um dos códigos a seguir:
+
+* 200: caso exista planetas cadastrados
+* 404: caso o registro não existe.
+
+**Response:**
 
 ```
 {
@@ -125,14 +139,9 @@ Deve retornar um planeta.
 }
 ```
 
-A resposta deve conter os códigos a seguir:
-
-* 200: caso exista planetas cadastrados
-* 404: caso o registro não existe.
+### Remover
 
 `DELETE/planetas/{id}`: remove um planeta.
-
-Deve aceitar uma requisição com body vazio e retornar 204.
 
 A resposta deve conter os códigos a seguir:
 
